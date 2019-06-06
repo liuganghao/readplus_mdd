@@ -347,6 +347,9 @@ const utils = {
             }
         });
     },
+    jwt_verify: (IdToken) => {
+        return jwt.verify(IdToken, jwk2pem(utils.config.jwt.publicKey));
+    },
     _beforeRun: (body = {}) => {
         //let eventobj = JSON.parse(event.toString());
         //let body = JSON.parse(eventobj.body || "{}");
@@ -372,9 +375,9 @@ const utils = {
         let jsonModel = await utils.getJSON(ctx)
         // if (!entity.createdat)
         //     entity.createdat = new Date()
-        if (!entity.createdby)
+        if (!entity.createdby && ctx.userinfo && ctx.userinfo._id)
             entity.createdby = mongoose.Types.ObjectId(ctx.userinfo._id)
-        if (!entity.createdby_name)
+        if (!entity.createdby_name && ctx.userinfo && ctx.userinfo.name)
             entity.createdby_name = ctx.userinfo.name
         if (!entity.state && jsonModel && jsonModel.entity && jsonModel.entity.statemachine && jsonModel.entity.statemachine.length > 0)
             entity.state = jsonModel.entity.statemachine.sort((a, b) => a.index - b.index)[0].fromstate.code
