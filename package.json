@@ -1,0 +1,20 @@
+{
+  "name": "readplus_mdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liugh",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^6.1.1",
+    "crypto": "^1.0.1",
+    "fs-extra": "^8.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.13",
+    "pem-jwk": "^2.0.0",
+    "request": "^2.88.0"
+  }
+}
