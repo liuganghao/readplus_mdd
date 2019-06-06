@@ -56,6 +56,9 @@ const utils = {
         }
     },
     fslist: [],
+    initMongodb: async () => {
+        await mongoose.connect(config.mongoUri, { useNewUrlParser: true });
+    },
     getJSON: async (ctx) => {
         let generateDBSchema = (model) => {
             let _getSimpleType = (type) => {
