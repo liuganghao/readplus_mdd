@@ -9,7 +9,51 @@ const request = require('request');
 
 const utils = {
     config: {
-
+        // model: {
+        //     type: 'oss',
+        //     config: {
+        //         region: 'oss-cn-beijing',
+        //         accessKeyId: 'LTAIE4YkQcigzTlt',
+        //         accessKeySecret: 'RKjIyjF8uWi1HmCRr7BcGbEkxNJW6c',
+        //         bucket: 'esread-dev'
+        //     },
+        // },
+        // model: { type: 'local', config: '.' },
+        model: { type: 'github', config: 'liuganghao/readplus_model' },
+        env: 'dev',
+        mongoUri: 'mongodb://root:123456789a@ds117816.mlab.com:17816/demo',
+        jwt: {
+            privateKey: { "kty": "RSA", "kid": "67174182967979709913950471789226181721", "alg": "ES256", "n": "oH5WunqaqIopfOFBz9RfBVVIIcmk0WDJagAcROKFiLJScQ8N\_nrexgbCMlu-dSCUWq7XMnp1ZSqw-XBS2-XEy4W4l2Q7rx3qDWY0cP8pY83hqxTZ6-8GErJm\_0yOzR4WO4plIVVWt96-mxn3ZgK8kmaeotkS0zS0pYMb4EEOxFFnGFqjCThuO2pimF0imxiEWw5WCdREz1v8RW72WdEfLpTLJEOpP1FsFyG3OIDbTYOqowD1YQEf5Nk2TqN\_7pYrGRKsK3BPpw4s9aXHbGrpwsCRwYbKYbmeJst8MQ4AgcorE3NPmp-E6RxA5jLQ4axXrwC0T458LIVhypWhDqejUw", "e": "AQAB", "d": "aQsHnLnOK-1xxghw2KP5JTZyJZsiwt-ENFqqJfPUzmlYSCNAV4T39chKpkch2utd7hRtSN6Zo4NTnY8EzGQQb9yvunaiEbWUkPyJ6kM3RdlkkGLvVtp0sRwPCZ2EAYBlsMad9jkyrtmdC0rtf9jerzt3LMLC7XWbnpC3WAl8rsRDR1CGs\_-u4sfZfttsaUbJDD9hD0q4NfLDCVOZoQ\_8wkZxyWDAQGCe6GcCbu6N81fTp2CSVbiBj7DST\_4x2NYUA2KG8vyZYcwviNTxQzk4iPfdN2YQz\_9aMTZmmhVUGlmTvAjE5ebBqcqKAS0NfhOQHg2uR46eBKBy\_OyVOLohsQ", "p": "8Tdo3DCs-0t9JMtM0lYqPRP4wYJs37Rv6S-ygRui2MI\_hadTY9I2A199JMYw7Fjke\_wa3gqJLa98pbybdLWkrOxXbKEkwE4uc4-fuNjLbUTC5tqdM5-nXmpL887uREVYnk8FUzvWeXYTCNCb7OLw5l8yPJ1tR8aNcd0fJNDKh98", "q": "qlRrGSTsZzBkDgDi1xlCoYvoM76cbmxrCUK-mc\_kBRHfMjlHosxFUnAbxqIBE4eAJEKVfIJLQrHFvIDjQb3kM9ylmwMCu9f8u9DHrT8J7LSDlLqDaXuiM2oiKtW3bAaBPuiR7sVMFcuB5baCebHU487YymJCBTfeCZtFdi6c4w0", "dp": "gVCROKonsjiQCG-s6X4j-saAL016jJsw-7QEYE6uiMHqR\_6iJ\_uD1V8Vuec-RxaItyc6SBsh24oeqsNoG7Ndaw7w912UVDwVjwJKQFCJDjU0v4oniItosKcPvM8M0TDUB1qZojuMCWWRYsJjNSWcvAQA7JoBAd-h6I8AqT39tcU", "dq": "BckMQjRg2zhnjZo2Gjw\_aSFJZ8iHo7CHCi98LdlD03BB9oC\_kCYEDMLGDr8d7j3h-llQnoQGbmN\_ZeGy1l7Oy3wpG9TEWQEDEpYK0jWb7rBK79hN8l1CqyBlvLK5oi-uYCaiHkwRQ4RACz9huyRxKLOz5VvlBixZnFXrzBHVPlk", "qi": "M5NCVjSegf\_KP8kQLAudXUZi\_6X8T-owtsG\_gB9xYVGnCsbHW8gccRocOY1Xa0KMotTWJl1AskCu-TZhOJmrdeGpvkdulwmbIcnjA\_Fgflp4lAj4TCWmtRI6982hnC3XP2e-nf\_z2XsPNiuOactY7W042D\_cajyyX\_tBEJaGOXM" },
+            publicKey: { "kty": "RSA", "kid": "67174182967979709913950471789226181721", "alg": "ES256", "n": "oH5WunqaqIopfOFBz9RfBVVIIcmk0WDJagAcROKFiLJScQ8N\_nrexgbCMlu-dSCUWq7XMnp1ZSqw-XBS2-XEy4W4l2Q7rx3qDWY0cP8pY83hqxTZ6-8GErJm\_0yOzR4WO4plIVVWt96-mxn3ZgK8kmaeotkS0zS0pYMb4EEOxFFnGFqjCThuO2pimF0imxiEWw5WCdREz1v8RW72WdEfLpTLJEOpP1FsFyG3OIDbTYOqowD1YQEf5Nk2TqN\_7pYrGRKsK3BPpw4s9aXHbGrpwsCRwYbKYbmeJst8MQ4AgcorE3NPmp-E6RxA5jLQ4axXrwC0T458LIVhypWhDqejUw", "e": "AQAB" }
+        },
+        oss: {
+            db: {
+                rolearn: "acs:ram::1484545477798971:role/oss-esread-db",
+                region: 'oss-cn-beijing',
+                accessKeyId: 'LTAIV6xZrhKO4onQ',
+                accessKeySecret: 'xUy1SQKj63uPzZL2CL9unIjDfHYVBw',
+                bucket: 'esread-db',
+                expiration: 15 * 60,
+                policy: {
+                    Statement: [
+                        {
+                            Effect: "Allow",
+                            Action: [
+                                "oss:GetObject",
+                                "oss:AbortMultipartUpload",
+                                "oss:PutObject",
+                                "oss:PostObject"
+                            ],
+                            Resource: [
+                                "acs:oss:*:*:esread-db",
+                                "acs:oss:*:*:esread-db/*"
+                            ]
+                        }
+                    ],
+                    Version: "1"
+                }
+            }
+        }
     },
     fslist: [],
     initMongodb: async () => {
@@ -192,7 +236,7 @@ const utils = {
                 let filecontent, mstr
                 switch (utils.config.model.type.toLowerCase().trim()) {
                     case 'oss':
-                        let ossClient = new aliOss({
+                        let ossClient = new aliOss.STS({
                             region: utils.config.model.config.region,
                             accessKeyId: utils.config.model.config.accessKeyId,
                             accessKeySecret: utils.config.model.config.accessKeySecret,
@@ -347,9 +391,6 @@ const utils = {
             }
         });
     },
-    jwt_verify: (IdToken) => {
-        return jwt.verify(IdToken, jwk2pem(utils.config.jwt.publicKey));
-    },
     _beforeRun: (body = {}) => {
         //let eventobj = JSON.parse(event.toString());
         //let body = JSON.parse(eventobj.body || "{}");
@@ -363,8 +404,8 @@ const utils = {
         ctx.userinfo = {
             _id: mongoose.Types.ObjectId(token.id),
             name: token.name,
-            phone: utils.decrypt(token.phone, token.id + 'es.read'),
-            role: utils.decrypt(token.role, token.id + 'es.read'),
+            phone: !token.phone ? "" : utils.decrypt(token.phone, token.id + 'readplus'),
+            role: !token.role ? "" : utils.decrypt(token.role, token.id + 'readplus'),
         };
         return ctx;
     },
@@ -375,9 +416,9 @@ const utils = {
         let jsonModel = await utils.getJSON(ctx)
         // if (!entity.createdat)
         //     entity.createdat = new Date()
-        if (!entity.createdby && ctx.userinfo && ctx.userinfo._id)
+        if (!entity.createdby)
             entity.createdby = mongoose.Types.ObjectId(ctx.userinfo._id)
-        if (!entity.createdby_name && ctx.userinfo && ctx.userinfo.name)
+        if (!entity.createdby_name)
             entity.createdby_name = ctx.userinfo.name
         if (!entity.state && jsonModel && jsonModel.entity && jsonModel.entity.statemachine && jsonModel.entity.statemachine.length > 0)
             entity.state = jsonModel.entity.statemachine.sort((a, b) => a.index - b.index)[0].fromstate.code
